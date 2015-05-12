@@ -1,0 +1,45 @@
+{
+  "rows" : [
+    {
+      "id szkoly" : "1",
+      "ocena % z matematyki" : 20,
+      "ocena % z polskiego %" : 45,
+      "ocena % z fizyki" : 10,
+      "ocena % z biologii" : 65,
+      "ocena % z chemii" : 55
+    },
+    {
+      "id szkoly" : "2",
+      "ocena % z matematyki" : 81,
+      "ocena % z polskiego %" : 51,
+      "ocena % z fizyki" : 45,
+      "ocena % z biologii" : 90,
+      "ocena % z chemii" : 87
+    },
+    {
+      "id szkoly" : "3",
+      "ocena % z matematyki" : 78,
+      "ocena % z polskiego %" : 90,
+      "ocena % z fizyki" : 75,
+      "ocena % z biologii" : 83,
+      "ocena % z chemii" : 78
+    },
+    {
+      "id szkoly" : "4",
+      "ocena % z matematyki" : 35,
+      "ocena % z polskiego %" : 56,
+      "ocena % z fizyki" : 40,
+      "ocena % z biologii" : 75,
+      "ocena % z chemii" : 55
+    },
+    {
+      "id szkoly" : "5",
+      "ocena % z matematyki" : 78,
+      "ocena % z polskiego %" : 43,
+      "ocena % z fizyki" : 36,
+      "ocena % z biologii" : 69,
+      "ocena % z chemii" : 34
+    }
+  ]
+}
+

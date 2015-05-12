@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head lang="pl">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="libs/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/program.css" rel="stylesheet">
+    <script src="libs/jquery-1.11.2.min.js"></script>
+    <script src="libs/dist/js/bootstrap.min.js"></script>
+    <script src="libs/site.js"></script>
+    <script src="libs/Blob.js"></script>
+    <script src="libs/FileSaver.js"></script>
+
+</head>
+<body>
+<div>
+    <nav class='navbar navbar-default'>
+        <div class="navbar-header" style="margin-right: 35px;">
+            <span class="navbar-brand">Chernoff Faces</span>
+            <img src="css/elements/logo.png" style="width: 30%; margin-left: 36px;">
+        </div>
+        <div class="nav navbar-nav">
+            <div class="input-group" style="display: table; margin-top: 6px; ">
+                <span class="btn btn-default btn-file" style=" display: table-cell; width: 146px;">Wczytaj plik<input type="file" id="file-input"/></span>
+                <input type="text" class="form-control" id="file-name" readonly style="width: 400px;">
+                <span class="information">Załaduj plik z danymi</span>
+            </div>
+
+            <div class="input-group" style="display: table; margin-top: 6px; ">
+                 <span class="btn btn-default btn-load" style=" display: table-cell">Wczytaj ustawienia<input type="file" id="loadAttr"/></span>
+                <input type="text" class="form-control" id="attrSett" readonly style="width: 400px;">
+                <span class="information">Załaduj ustawienia wizualizacji</span>
+            </div>
+
+            <button id="saveAttr" class="btn btn-default" style="margin: 5px 0; width:146px;">Zapisz ustawienia</button>
+            <span class="information" style="margin-left: 406px">Zapisz ustawienia wizualizacji</span>
+        </div>
+    </nav>
+    <div id="fileExample">
+
+        <table class="table table-nonfluid" style="display: none">
+            <span class="information" id="dis" style="display: none">Przykładowe dane znajdujące się w pliku</span>
+            <thead>
+            <tr>
+                <td>Atrybut</td>
+                <td>Wartość</td>
+            </tr>
+            </thead>
+            <tbody id="exAttr">
+            </tbody>
+        </table>
+    </div>
+    <div id="attrForm" style="display: none;">
+        <span class="information">Ustaw kryteria oceny atrybutów zestawu danych</span>
+        <form id="attrSetter" role="form">
+            <div class="row" id="face">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Głowa</span>
+                        <select id="face_attr" name="face_attr" class="form-control" required></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="face_poor" name="face_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="face_satisfactionary" name="face_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="face_good" name="face_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="face_excellent" name="face_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="eyes">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Oczy</span>
+                        <select id="eyes_attr" name="eyes_attr" class="form-control" required></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="eyes_poor" name="eyes_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="eyes_satisfactionary" name="eyes_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="eyes_good" name="eyes_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="eyes_excellent" name="eyes_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="nose">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Nos</span>
+                        <select id="nose_attr" name="nose_attr" class="form-control" required></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="nose_poor" name="nose_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="nose_satisfactionary" name="nose_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="nose_good" name="nose_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="nose_excellent" name="nose_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="mouth">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Usta</span>
+                        <select id="mouth_attr" name="mouth_attr" class="form-control" required></select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="mouth_poor" name="mouth_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="mouth_satisfactionary" name="mouth_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="mouth_good" name="mouth_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="mouth_excellent" name="mouth_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="eyebrows">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Brwi</span>
+                        <select id="eyebrows_attr" name="eyebrows_attr" class="form-control">
+                            <option value="">--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="eyebrows_poor" name="eyebrows_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="eyebrows_satisfactionary" name="eyebrows_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="eyebrows_good" name="eyebrows_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="eyebrows_excellent" name="eyebrows_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="ears">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Uszy</span>
+                        <select id="ears_attr" name="ears_attr" class="form-control">
+                            <option value="">--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="ears_poor" name="ears_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="ears_satisfactionary" name="ears_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="ears_good" name="ears_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="ears_excellent" name="ears_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="pupils">
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Źrenice</span>
+                        <select id="pupils_attr" name="pupils_attr" class="form-control">
+                            <option value="">--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">słaby >=</span>
+                        <input id="pupils_poor" name="pupils_poor" type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">zadowalający >=</span>
+                        <input id="pupils_satisfactionary" name="pupils_satisfactionary" type="text" class="form-control" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon4">dobry >=</span>
+                        <input id="pupils_good" name="pupils_good" type="text" class="form-control" aria-describedby="basic-addon4">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon5">wspaniały >=</span>
+                        <input id="pupils_excellent" name="pupils_excellent" type="text" class="form-control" aria-describedby="basic-addon5">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success" id="setAttributes">Ustaw</button>
+        </form>
+    </div>
+    <div id="objects-container" class="row">
+        <div class="object col-xs-6" id="repeat">
+            <table class="table"></table>
+            <div class="face">
+                <div class="pupils"></div>
+                <div class="eyes"></div>
+                <div class="eyebrows"></div>
+                <div class="ears"></div>
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="libs/program.js"></script>!-->
+</body>
+</html>

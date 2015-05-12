@@ -1,0 +1,45 @@
+{
+  "rows" : [
+    {
+      "Player Name" : "Carmelo Anthony",
+      "Games Played" : 67,
+      "Field Goal %" : 44.9,
+      "Three Point %" : 37.9,
+      "Free Throw %" : 83,
+      "Points Per Game" : 28.7
+    },
+    {
+      "Player Name" : "Kevin Durant",
+      "Games Played" : 81,
+      "Field Goal %" : 51,
+      "Three Point %" : 41.6,
+      "Free Throw %" : 90.5,
+      "Points Per Game" : 28.1
+    },
+    {
+      "Player Name" : "Kobe Bryant",
+      "Games Played" : 78,
+      "Field Goal %" : 46.3,
+      "Three Point %" : 32.4,
+      "Free Throw %" : 83.9,
+      "Points Per Game" : 27.3
+    },
+    {
+      "Player Name" : "LeBron James",
+      "Games Played" : 76,
+      "Field Goal %" : 56.5,
+      "Three Point %" : 40.6,
+      "Free Throw %" : 75.3,
+      "Points Per Game" : 26.8
+    },
+    {
+      "Player Name" : "James Harden",
+      "Games Played" : 78,
+      "Field Goal %" : 43.8,
+      "Three Point %" : 36.8,
+      "Free Throw %" : 85.1,
+      "Points Per Game" : 25.9
+    }
+  ]
+}
+

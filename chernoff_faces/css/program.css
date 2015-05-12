@@ -1,0 +1,311 @@
+#file-input {
+    cursor: pointer;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    /*This makes the button huge so that it can be clicked on*/
+    font-size:50px;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+}
+.finputWrapper {
+    height: 32px;
+    width: 64px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    /*Using a background color, but you can use a background image to represent a button*/
+    background-color: #DDF;
+}
+
+.right{
+    float: right;
+}
+#fileExample{
+    margin-left: 35px;
+}
+#fileExample span.information{
+    font-style: italic;
+}
+#fileExample table{
+    width:auto;
+    margin: 20px;
+    margin-left: 40px;
+}
+
+span.information{
+    margin-left: 10px;
+    line-height: 33px;
+}
+
+form#faceElements {
+    margin-left: 50px;
+    float:left;
+}
+form#grades{
+    float:left;
+    width: 800px;
+}
+
+form#grades input{
+    width: 80px;
+}
+
+#attrForm span.information{
+    margin: 40px;
+
+}
+form#attrSetter{
+    margin: 40px;
+}
+
+form#attrSetter div{
+    margin-bottom: 5px;
+}
+
+form#attrSetter #setAttributes{
+    margin-top: 15px;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.btn-load {
+    position: relative;
+    overflow: hidden;
+}
+.btn-load input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+div#menu{
+    display: flex;
+}
+
+div.head{
+    width: 300px;
+    margin-left: 100px;
+}
+
+div #repeat{
+    display: none;
+}
+/* ---- face ---- */
+#objects-container .object div.face{
+    background-repeat: no-repeat;
+    width: 238px;
+    height: 317px;
+    position: relative;
+    float:left;
+}
+
+
+div.object{
+    margin-left:50px;
+    margin-top:50px;
+    margin-right: 50px;
+}
+
+
+div.object table{
+    display: block;
+    font-size: 14px;
+    float:right;
+    width: 300px!important;
+    margin-top: 25px;
+}
+
+div.object table .table-nonfluid{
+    width: auto!important;
+}
+
+#objects-container .object div.face.excellent{
+    background-image: url('elements/heads/excellent.png');
+}
+
+#objects-container .object div.face.good{
+    background-image: url('elements/heads/good.png');
+}
+#objects-container .object div.face.satisfactionary{
+    background-image: url('elements/heads/satisfactionary.png');
+}
+#objects-container .object div.face.poor{
+    background-image: url('elements/heads/poor.png');
+}
+#objects-container .object div.face.bad{
+    background-image: url('elements/heads/bad.png');
+}
+/* ---- end face ---- */
+
+/* ---- mouth ---- */
+div.mouth{
+    background-repeat: no-repeat;
+    width: 154px;
+    height: 35px;
+    position: relative;
+    left: 42px;
+    top: 60px;
+}
+div.mouth.excellent{
+    background-image: url('elements/mouth/excellent.png');
+}
+
+div.mouth.good{
+    background-image: url('elements/mouth/good.png');
+}
+
+div.mouth.satisfactionary{
+    background-image: url('elements/mouth/satisfactionary.png');
+}
+
+div.mouth.poor{
+    background-image: url('elements/mouth/poor.png');
+}
+
+div.mouth.bad{
+    background-image: url('elements/mouth/bad.png');
+}
+/* ---- end mouth ---- */
+
+/* ---- eye ---- */
+
+div.eyes{
+    position: relative;
+    top: 115px;
+    left: 44px;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 50px;
+}
+div.eyes.excellent{
+    background-image: url('elements/eyes/excellent.png');
+}
+div.eyes.good{
+    background-image: url('elements/eyes/good.png');
+}
+div.eyes.satisfactionary{
+    background-image: url('elements/eyes/satisfactionary.png');
+}
+div.eyes.poor{
+    background-image: url('elements/eyes/poor.png');
+}
+div.eyes.bad{
+    background-image: url('elements/eyes/bad.png');
+}
+/* ---- end eye ----*/
+
+/* ---- nose ----*/
+
+div.nose{
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 35px;
+    position: relative;
+    left: 98px;
+    top: 51px;
+}
+div.nose.excellent{background-image: url('elements/nose/excellent.png');}
+div.nose.good{background-image: url('elements/nose/good.png');}
+div.nose.satisfactionary{background-image: url('elements/nose/satisfactionary.png');}
+div.nose.poor{background-image: url('elements/nose/poor.png');}
+div.nose.bad{background-image: url('elements/nose/bad.png');}
+/* ---- end nose ----*/
+
+/* ---- ear ---- */
+
+div.ears{
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 50px;
+    position: relative;
+    left: -31px;
+    top: 48px;
+}
+div.ears.excellent{background-image: url('elements/ears/excellent.png'); top: 49px;}
+div.ears.good{background-image: url('elements/ears/good.png');}
+div.ears.satisfactionary{background-image: url('elements/ears/satisfactionary.png');}
+div.ears.poor{background-image: url('elements/ears/poor.png'); top:60px;}
+div.ears.bad{background-image: url('elements/ears/bad.png'); top: 62px;}
+/* ---- end ear ---- */
+
+
+
+div.pupils{
+    background-repeat: no-repeat;
+    width: 95px;
+    height: 7px;
+    z-index: 1;
+    position: relative;
+
+}
+div.pupils.excellent {
+    left: 85px;
+    top: 137px;
+    background-image: url('elements/pupils/bad.png');
+}
+div.pupils.good {
+    left: 85px;
+    top: 143px;
+    background-image: url('elements/pupils/bad.png');
+}
+div.pupils.satisfactionary{
+    left: 72px;
+    top: 143px;
+    background-image: url('elements/pupils/bad.png');
+}
+div.pupils.poor {
+    left: 57px;
+    top: 143px;
+    background-image: url('elements/pupils/bad.png');
+}
+div.pupils.bad {
+    left: 57px;
+    top: 150px;
+    background-image: url('elements/pupils/bad.png');
+}
+
+
+div.eyebrows {
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 21px;
+    position: relative;
+    left: 45px;
+    top: 30px;
+}
+div.eyebrows.excellent{background-image: url('elements/eyebrows/excellent.png');}
+div.eyebrows.good{background-image: url('elements/eyebrows/good.png');}
+div.eyebrows.satisfactionary{background-image: url('elements/eyebrows/satisfactionary.png');}
+div.eyebrows.poor{background-image: url('elements/eyebrows/poor.png');}
+div.eyebrows.bad{background-image: url('elements/eyebrows/bad.png');}
+
